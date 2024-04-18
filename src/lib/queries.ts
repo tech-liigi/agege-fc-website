@@ -12,7 +12,7 @@ export const navQuery = groq`*[_type == "nav"][0] {
       page_submenu {
        clubs[]->  {
           name,
-          url,
+          link,
           image
         },
          links
@@ -20,18 +20,20 @@ export const navQuery = groq`*[_type == "nav"][0] {
     }
   }`;
 
+
 export const clubsQuery = groq`*[_type == "clubs"] | order(name asc)`;
 export const generalQuery = groq`*[_type == "general"][0]`;
 
 export interface generalResponse {
-    title: string;
-    primary_color: {
-        hex:string;
-    };
-    secondary_color: {
-        hex:string;
-    };
-    logo: object;
+  title: string;
+  primary_color: {
+    hex: string;
+  };
+  secondary_color: {
+    hex: string;
+  };
+  logo: object;
+  second_logo: object;
 }
 interface SubNav {
     redirect_link:string;
